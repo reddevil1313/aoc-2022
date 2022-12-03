@@ -1,4 +1,5 @@
-# Second Part required manual storing of lines in variables, there must be a way of readin lines in batches
+# Batch reading using itertools
+from itertools import islice
 
 def part1():
     with open('input.txt') as f:
@@ -16,21 +17,12 @@ def part2():
     with open('input.txt') as f:
         sum = 0
         count = 0
-        line1 = ""
-        line2 = ""
-        line3 = ""
-        for line in f:
-            if count % 3 == 0:
-                line1 = line.strip()
-            elif count % 3 == 1:
-                line2 = line.strip()
-            elif count % 3 == 2:
-                line3 = line.strip()
-                common_charac = ''.join(set(line1).intersection(line2).intersection(line3))
-                if ord(common_charac) > 96:
-                    sum += ord(common_charac) - 96
-                else:
-                    sum += ord(common_charac) - 64 + 26
+        for n_lines in iter(lambda: tuple(islice(f, 3)), ()):
+            common_charac = ''.join(set(n_lines[0].strip()).intersection(n_lines[1].strip()).intersection(n_lines[2].strip()))
+            if ord(common_charac) > 96:
+                sum += ord(common_charac) - 96
+            else:
+                sum += ord(common_charac) - 64 + 26
             count += 1
     return sum
 
