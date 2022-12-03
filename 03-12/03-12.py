@@ -1,5 +1,4 @@
-# 
-import math
+# Second Part required manual storing of lines in variables, there must be a way of readin lines in batches
 
 def part1():
     with open('input.txt') as f:
