@@ -1,4 +1,4 @@
-# Tried using range() but did not work
+# Used Dequeues to have a FIFO structure 
 from collections import deque
 
 def create_stacks(lst, num):
