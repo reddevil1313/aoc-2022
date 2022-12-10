@@ -80,7 +80,6 @@ def part2():
 
                     # Move Each
                     if not (abs(rope[i-1][0] - rope[i][0]) <= 1 and abs(rope[i-1][1] - rope[i][1]) <= 1):
-                        print("Hi")
                         if rope[i-1][0] == rope[i][0]:
                             if rope[i-1][1] > rope[i][1]:
                                 rope[i][1] += 1
